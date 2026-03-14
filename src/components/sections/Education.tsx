@@ -112,8 +112,8 @@ export function Education() {
                   icon={<Download size={18} />} 
                   onClick={() => {
                     const link = document.createElement("a");
-                    link.href = "/prince.pdf";
-                    link.download = "prince.pdf";
+                    link.href = "/prince_khatik_7.pdf";
+                    link.download = "princekhatik 7.pdf";
                     link.click();
                   }}
                   className="w-full sm:w-auto shrink-0"
