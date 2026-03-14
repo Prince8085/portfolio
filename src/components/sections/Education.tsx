@@ -73,18 +73,18 @@ export function Education() {
               <img 
                 src="/photo.jpg" 
                 alt="Prince Khatik" 
-                className="object-cover w-full h-full filter grayscale hover:grayscale-0 transition-all duration-500"
+                className="object-cover w-full h-full transition-all duration-500"
                 onError={(e) => {
                   // Fallback to placeholder if photo is missing.
                   (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600";
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-100 z-10" />
               
               {/* Overlay text */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <p className="text-white font-medium text-xl">Prince Khatik</p>
-                <p className="text-white/80 text-sm mt-1">Full Stack + AI Engineer</p>
+              <div className="absolute bottom-0 left-0 right-0 p-6 opacity-100 z-20">
+                <p className="text-white font-medium text-xl drop-shadow-md">Prince Khatik</p>
+                <p className="text-white/90 text-sm mt-1 drop-shadow-md">Full Stack + AI Engineer</p>
               </div>
             </div>
             
