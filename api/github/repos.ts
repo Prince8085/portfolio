@@ -12,12 +12,23 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       headers["Authorization"] = `token ${token}`;
     }
 
-    const url = token 
+    const primaryUrl = token 
       ? "https://api.github.com/user/repos?visibility=all&sort=updated&per_page=100&affiliation=owner,collaborator"
       : "https://api.github.com/users/prince8085/repos?sort=updated&per_page=100";
 
-    const response = await fetch(url, { headers });
+    let response = await fetch(primaryUrl, { headers });
     
+    // If token is invalid or expired (401/403), gracefully fallback to public repos
+    if (!response.ok && token) {
+      console.warn(`GitHub API request with token failed (${response.status}), falling back to public repos...`);
+      response = await fetch("https://api.github.com/users/prince8085/repos?sort=updated&per_page=100", {
+        headers: {
+          "Accept": "application/vnd.github.v3+json",
+          "User-Agent": "Portfolio-App"
+        }
+      });
+    }
+
     if (!response.ok) {
       throw new Error(`GitHub API responded with ${response.status}`);
     }

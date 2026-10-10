@@ -172,7 +172,11 @@ export function GithubActivity() {
 
     async function fetchAllRepos() {
       try {
-        const response = await fetch("/api/github/repos");
+        let response = await fetch("/api/github/repos");
+        if (!response.ok) {
+          // If serverless endpoint or token fails, fallback to direct GitHub public API
+          response = await fetch("https://api.github.com/users/prince8085/repos?sort=updated&per_page=100");
+        }
         if (!response.ok) throw new Error("Failed to fetch repos");
         const data = await response.json();
         const nonForks = data.filter((repo: any) => !repo.fork);
