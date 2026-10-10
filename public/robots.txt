@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://princekachhwaha.tech/sitemap.xml
+Sitemap: https://www.princekachhwaha.tech/sitemap.xml
