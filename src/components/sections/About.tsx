@@ -5,28 +5,28 @@ import { BrainCircuit, Server, Workflow, Zap } from "lucide-react";
 
 const skills = [
   {
-    title: "AI Agents & LLMs",
+    title: "AI Agents & LLM Systems",
     icon: <BrainCircuit className="text-blue-600 dark:text-blue-400" size={24} />,
-    description: "Building autonomous systems with Gemini, GPT-4, Function Calling, and RAG pipelines using ChromaDB.",
-    tags: ["LangChain", "OpenCV", "Prompt Engineering"]
+    description: "Architecting autonomous agents with multi-modal inputs, Gemini/GPT-4/Qwen routing, Function Calling, and low-latency RAG pipelines with ChromaDB.",
+    tags: ["LangChain", "RAG & ChromaDB", "Multi-Model Routing", "OpenCV"]
   },
   {
-    title: "Distributed Systems",
+    title: "Distributed Microservices",
     icon: <Server className="text-purple-600 dark:text-purple-400" size={24} />,
-    description: "Architecting scalable microservices with FastAPI, Node.js, and event-driven patterns.",
-    tags: ["AWS", "Docker", "Redis", "Celery"]
+    description: "Designing high-throughput asynchronous services with FastAPI, Redis Pub/Sub, Celery workers, API Gateway rate-limiting, and OAuth 2.0 authentication.",
+    tags: ["FastAPI (Async)", "Redis Pub/Sub", "Celery Queues", "AWS Lambda"]
   },
   {
     title: "Full Stack Engineering",
     icon: <Workflow className="text-emerald-600 dark:text-emerald-400" size={24} />,
-    description: "Crafting premium user experiences with modern React, Next.js, and real-time WebSockets.",
-    tags: ["React 19", "Next.js 15", "Tailwind CSS"]
+    description: "Building resilient client applications and SaaS dashboards with Next.js 15, React 19, real-time WebSockets, offline-first PWAs, and Three.js 3D viewports.",
+    tags: ["React 19", "Next.js 15", "WebSockets", "Three.js"]
   },
   {
-    title: "Production Ops",
+    title: "Production Ops & AI Observability",
     icon: <Zap className="text-amber-600 dark:text-amber-400" size={24} />,
-    description: "Deploying resilient infrastructure with CI/CD, monitoring, and circuit breaker patterns.",
-    tags: ["GitHub Actions", "CloudWatch", "LangSmith"]
+    description: "Deploying production infrastructure on AWS (EC2, S3, CloudFront), maintaining 85%+ PyTest coverage, CI/CD pipelines, and LangSmith LLM evaluation guardrails.",
+    tags: ["AWS & Docker", "PyTest (85%+ cov)", "GitHub Actions", "LangSmith"]
   }
 ];
 
@@ -42,8 +42,9 @@ export function About() {
           </h2>
           <p className="text-lg text-gray-600 dark:text-white/60 font-light leading-relaxed">
             I don't just write code; I design systems that solve complex business problems. 
-            With 2+ years of experience architecting 6+ production applications, my focus is on 
-            building resilient, scalable, and autonomous AI infrastructure.
+            With 2+ years of experience architecting 8+ production applications across retail, 
+            healthcare, ed-tech, and pharma, my focus is on building resilient, scalable, 
+            and autonomous AI infrastructure.
           </p>
         </div>
 

@@ -60,6 +60,7 @@ export default function App() {
               <button onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-black dark:hover:text-white transition-colors">Experience</button>
               <button onClick={() => document.getElementById('education')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-black dark:hover:text-white transition-colors">Education</button>
               <button onClick={() => document.getElementById('github')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-black dark:hover:text-white transition-colors">GitHub</button>
+              <a href="/Prince_Khatik_ATS_Resume.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">Resume</a>
               <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">Contact</button>
             </div>
 

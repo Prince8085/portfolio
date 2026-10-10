@@ -6,18 +6,29 @@ import { ExternalLink } from "lucide-react";
 
 const experiences = [
   {
+    role: "Full Stack & AI Development Intern",
+    company: "PlenzoNow",
+    website: "",
+    period: "Jan 2026 - Jul 2026",
+    details: [
+      "Developed and deployed full-stack web features using React, Node.js, and AI APIs — shipped 5+ feature modules within the internship.",
+      "Integrated AI-powered automation (LLM content generation, smart search) into the product — reduced manual processing by 35%.",
+      "Collaborated on REST API development, database optimization, and end-to-end testing with 80%+ code coverage."
+    ]
+  },
+  {
     role: "Founder & Lead Software Engineer",
     company: "Innovix Solutions (MSME Registered)",
     website: "https://innovixsolutions.in",
-    period: "Jan 2024 - Jan 2026",
+    period: "Jan 2024 - Present",
     details: [
-      "Founded AI software studio; architected and shipped 6+ production applications using Python, TypeScript, React, Next.js, FastAPI, Node.js, PostgreSQL - deployed on AWS infrastructure.",
+      "Founded AI software studio; architected and shipped 8+ production applications using Python, TypeScript, React, Next.js, FastAPI, Node.js, PostgreSQL - deployed on AWS infrastructure.",
       "Designed microservices architecture with Redis Pub/Sub message queues, Celery async workers, API Gateway with rate limiting, and OAuth 2.0 - reducing API latency by 30% and database load by 45%.",
       "Engineered multi-model LLM inference routing (Gemini / GPT-4 / Qwen) with Function Calling, RAG pipelines (ChromaDB), and SSE / WebSocket streaming - cutting inference costs by 40%.",
+      "Delivered AAAFARM wholesale mandi billing PWA (React 19, offline-first) and Averiq Lifesciences corporate site (Next.js) — both serving live business users in production.",
       "Deployed on AWS EC2 (Docker, Nginx, SSL), Lambda serverless functions, S3 + CloudFront CDN, with CloudWatch monitoring and LangSmith LLM observability.",
       "Maintained 85%+ test coverage (PyTest), CI/CD pipelines (GitHub Actions), feature flags for staged rollouts, and OpenAPI / Swagger API documentation.",
-      "Built CNN-LSTM models achieving 95% accuracy; implemented LLM evaluation frameworks for hallucination detection and guardrails for autonomous agent safety.",
-      "Led and mentored a team of 10+ software engineering and AI interns, supervising their internship projects, conducting technical guidance sessions, reviewing code, and ensuring successful project delivery aligned with company objectives."
+      "Led and mentored a team of 10+ software engineering and AI interns, supervising technical guidance sessions, reviewing pull requests, and ensuring production-ready deliverables."
     ]
   }
 ];
@@ -40,7 +51,7 @@ export function Experience() {
             Building <span className="text-gradient">Production</span> AI.
           </h2>
           <p className="text-lg text-gray-600 dark:text-white/60 font-light leading-relaxed">
-            A track record of founding, architecting, and scaling AI-driven software studios.
+            A track record of founding, architecting, and scaling AI-driven software studio and products.
           </p>
         </div>
 

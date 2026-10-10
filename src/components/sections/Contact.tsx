@@ -25,9 +25,12 @@ export function Contact() {
               I'm currently open to new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
               <Button size="lg" icon={<ArrowRight size={18} />} onClick={() => window.location.href = 'mailto:kachhwahaprince@gmail.com'}>
-                Get In Touch
+                kachhwahaprince@gmail.com
+              </Button>
+              <Button variant="secondary" size="lg" onClick={() => window.open('https://wa.me/918085654567', '_blank')}>
+                +91-80856-54567
               </Button>
             </div>
 

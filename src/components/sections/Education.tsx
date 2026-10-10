@@ -3,16 +3,16 @@ import { useRef } from "react";
 import { Badge } from "../ui/Badge";
 import { Card } from "../ui/Card";
 import { Button } from "../ui/Button";
-import { Download, GraduationCap, MapPin } from "lucide-react";
+import { Download, GraduationCap, MapPin, FileText } from "lucide-react";
 
 const educationData = [
   {
-    degree: "B.Tech in Computer Science — AI & Machine Learning",
+    degree: "B.Tech in Computer Science — AI & Machine Learning Specialization",
     institution: "Madhav Institute of Technology and Science (MITS)",
-    location: "Gwalior",
+    location: "Gwalior, MP",
     period: "July 2021 - July 2025",
     details: [
-      "Coursework: Deep Learning, NLP, Distributed Systems, DSA, Algorithms, System Design, Software Engineering."
+      "Coursework: Deep Learning, NLP, Distributed Systems, Data Structures & Algorithms, System Design, Software Engineering."
     ]
   },
   {
@@ -56,7 +56,7 @@ export function Education() {
             Education & <span className="text-gradient">Resume</span>.
           </h2>
           <p className="text-lg text-gray-600 dark:text-white/60 font-light leading-relaxed">
-            My academic journey and professional resume available for download.
+            My academic journey and verified ATS resume available for immediate review and download.
           </p>
         </div>
 
@@ -75,7 +75,6 @@ export function Education() {
                 alt="Prince Khatik" 
                 className="object-cover w-full h-full transition-all duration-500"
                 onError={(e) => {
-                  // Fallback to placeholder if photo is missing.
                   (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600";
                 }}
               />
@@ -84,7 +83,7 @@ export function Education() {
               {/* Overlay text */}
               <div className="absolute bottom-0 left-0 right-0 p-6 opacity-100 z-20">
                 <p className="text-white font-medium text-xl drop-shadow-md">Prince Khatik</p>
-                <p className="text-white/90 text-sm mt-1 drop-shadow-md">Full Stack + AI Engineer</p>
+                <p className="text-white/90 text-sm mt-1 drop-shadow-md">Full Stack & AI/ML Engineer</p>
               </div>
             </div>
             
@@ -104,22 +103,35 @@ export function Education() {
             >
               <Card className="p-8 border-black/10 dark:border-white/10 bg-gray-50 dark:bg-white/[0.02] flex flex-col sm:flex-row items-center justify-between gap-6">
                 <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Full Resume</h3>
-                  <p className="text-gray-600 dark:text-white/60">Get a detailed overview of my experience, skills, and education.</p>
+                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Verified ATS Resume</h3>
+                  <p className="text-gray-600 dark:text-white/60">Updated with production AI studio architecture, AWS microservices, and 8+ client products.</p>
                 </div>
-                <Button 
-                  size="lg" 
-                  icon={<Download size={18} />} 
-                  onClick={() => {
-                    const link = document.createElement("a");
-                    link.href = "/prince_khatik_7.pdf";
-                    link.download = "princekhatik 7.pdf";
-                    link.click();
-                  }}
-                  className="w-full sm:w-auto shrink-0"
-                >
-                  Download PDF
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto shrink-0">
+                  <Button 
+                    variant="secondary"
+                    size="lg" 
+                    icon={<FileText size={18} />} 
+                    onClick={() => {
+                      window.open("/Prince_Khatik_ATS_Resume.pdf", "_blank");
+                    }}
+                    className="w-full sm:w-auto"
+                  >
+                    View PDF
+                  </Button>
+                  <Button 
+                    size="lg" 
+                    icon={<Download size={18} />} 
+                    onClick={() => {
+                      const link = document.createElement("a");
+                      link.href = "/Prince_Khatik_ATS_Resume.pdf";
+                      link.download = "Prince_Khatik_ATS_Resume.pdf";
+                      link.click();
+                    }}
+                    className="w-full sm:w-auto"
+                  >
+                    Download
+                  </Button>
+                </div>
               </Card>
             </motion.div>
 

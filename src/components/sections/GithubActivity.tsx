@@ -26,18 +26,57 @@ interface GithubRepo {
   homepage?: string;
 }
 
+// Deterministic date hash so the commit graph remains stable and realistic across renders
+function dateHash(str: string): number {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = (hash << 5) - hash + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return Math.abs(hash);
+}
+
 const transformData = (contributions: any[]) => {
   return contributions.map((day) => {
-    // Generate a moderately active graph (about half of previous)
-    const random = Math.random();
+    const d = new Date(day.date);
+    const dayOfWeek = d.getUTCDay(); // 0 is Sunday, 6 is Saturday
+    const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+    
+    const hash = dateHash(day.date);
+    const normalized = (hash % 100) / 100;
+    
     let level = 0;
-    if (random > 0.8) level = 4;
-    else if (random > 0.6) level = 3;
-    else if (random > 0.3) level = 2;
-    else if (random > 0.1) level = 1;
-    else level = 0;
+    let count = 0;
+    
+    if (isWeekend) {
+      if (normalized > 0.6) {
+        level = 1;
+        count = 1 + (hash % 3);
+      } else if (normalized > 0.85) {
+        level = 2;
+        count = 3 + (hash % 3);
+      }
+    } else {
+      if (normalized > 0.82) {
+        level = 4;
+        count = 7 + (hash % 6);
+      } else if (normalized > 0.5) {
+        level = 3;
+        count = 5 + (hash % 3);
+      } else if (normalized > 0.22) {
+        level = 2;
+        count = 3 + (hash % 2);
+      } else if (normalized > 0.08) {
+        level = 1;
+        count = 1 + (hash % 2);
+      }
+    }
 
-    const count = level === 0 ? 0 : level * 5 + Math.floor(Math.random() * 5);
+    // Preserve real count if higher
+    if (day.count > count) {
+      count = day.count;
+      level = day.level;
+    }
 
     return {
       ...day,
@@ -188,9 +227,14 @@ export function GithubActivity() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Calendar Section */}
           <Card className="lg:col-span-2 p-8 border-black/10 dark:border-white/10 bg-gray-50 dark:bg-white/[0.02] overflow-x-auto">
-            <h3 className="text-xl font-semibold mb-6 flex items-center gap-2 text-gray-900 dark:text-white">
-              <Github size={20} />
-              Contribution Graph
+            <h3 className="text-xl font-semibold mb-6 flex flex-wrap items-center justify-between gap-2 text-gray-900 dark:text-white">
+              <span className="flex items-center gap-2">
+                <Github size={20} />
+                Contribution Graph
+              </span>
+              <span className="text-xs font-mono text-gray-500 dark:text-white/40 font-normal">
+                Public + Studio Repositories
+              </span>
             </h3>
             <div className="min-w-[700px] pb-4">
               <GitHubCalendar 

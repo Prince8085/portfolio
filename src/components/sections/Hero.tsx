@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { Stars } from "@react-three/drei";
 import { Button } from "../ui/Button";
 import { Badge } from "../ui/Badge";
-import { ArrowRight, Terminal } from "lucide-react";
+import { ArrowRight, Terminal, FileText } from "lucide-react";
 
 function Scene() {
   return (
@@ -31,8 +31,8 @@ export function Hero() {
             className="flex justify-center mb-6"
           >
             <Badge variant="glow" className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-              Available for new opportunities
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              Available Immediately • Open to Remote & Relocation
             </Badge>
           </motion.div>
 
@@ -52,7 +52,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-gray-600 dark:text-white/60 mb-10 max-w-2xl mx-auto font-light leading-relaxed"
           >
-            I'm Prince Khatik, a Full Stack + AI Engineer building production-grade LLM pipelines, autonomous agents, and scalable microservices.
+            I'm Prince Khatik, a Full Stack & AI Engineer building production-grade LLM pipelines, autonomous agents, and scalable microservices on AWS. Ex-Founder @ Innovix Solutions.
           </motion.p>
 
           <motion.div
@@ -64,8 +64,16 @@ export function Hero() {
             <Button size="lg" icon={<ArrowRight size={18} />} onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>
               View Case Studies
             </Button>
-            <Button variant="secondary" size="lg" icon={<Terminal size={18} />} onClick={() => document.getElementById('architecture')?.scrollIntoView({ behavior: 'smooth' })}>
-              Explore Architecture
+            <Button 
+              variant="secondary" 
+              size="lg" 
+              icon={<FileText size={18} />} 
+              onClick={() => window.open('/Prince_Khatik_ATS_Resume.pdf', '_blank')}
+            >
+              Verified Resume
+            </Button>
+            <Button variant="ghost" size="lg" icon={<Terminal size={18} />} onClick={() => document.getElementById('architecture')?.scrollIntoView({ behavior: 'smooth' })}>
+              Architecture
             </Button>
           </motion.div>
         </div>

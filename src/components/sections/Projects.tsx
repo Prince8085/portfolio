@@ -7,40 +7,49 @@ import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
-    title: "Autonomous AI Desktop Agent",
+    title: "Project OMNI — Autonomous AI Desktop Agent",
     description: "Built an autonomous agent executing code in sandboxed Docker containers, controlling desktop via real-time screen analysis (OpenCV), with multi-modal input (voice, vision, gesture, chat).",
     impact: "80% workflow reduction",
     tech: ["Python", "Gemini Pro", "Docker", "ChromaDB", "OpenCV", "AWS EC2"],
-    architecture: "Implemented RAG-based persistent memory (ChromaDB), face authentication, Telegram bot remote control, and CloudWatch health monitoring.",
-    liveUrl: "https://your-live-link.com",
-    githubUrl: "https://github.com/prince8085"
+    architecture: "Sandboxed Docker execution, ChromaDB vector memory for continuous context, OpenCV real-time visual UI parsing, Telegram bot IPC remote control, and CloudWatch monitoring.",
+    liveUrl: "",
+    githubUrl: "https://github.com/Prince8085/Project-OMNI"
   },
   {
-    title: "Autonomous Job Recruitment System",
-    description: "Engineered 24/7 agent processing 500+ listings/day across 4 platforms with LLM relevance scoring, scam detection, and dynamic ATS resume tailoring.",
-    impact: "40% conversion improvement, 15-20 hrs saved/week",
-    tech: ["Python", "Selenium", "Gemini AI", "Celery", "Redis", "AWS Lambda"],
-    architecture: "Architected Celery / Redis async pipeline, ATS auto-fill (Lever, Greenhouse, Workday), and Lambda-scheduled serverless scrapers.",
-    liveUrl: "https://your-live-link.com",
-    githubUrl: "https://github.com/prince8085"
+    title: "God-Mode Job Hunter — Autonomous Recruitment Agent",
+    description: "Engineered 24/7 recruitment agent processing 500+ listings/day across 4 major platforms with LLM relevance scoring, scam detection, and dynamic ATS resume tailoring.",
+    impact: "40% conversion lift • 15-20 hrs/week saved",
+    tech: ["Python", "Gemini AI", "Celery", "Redis", "AWS Lambda", "Next.js 15", "Clerk"],
+    architecture: "Celery & Redis async task pipeline, automated ATS field autofill (Lever, Greenhouse, Workday), serverless scrapers on AWS Lambda, and full-stack Next.js dashboard.",
+    liveUrl: "",
+    githubUrl: "https://github.com/Prince8085/God-Mode-Job-Hunter"
   },
   {
-    title: "Career Management AI Platform (SaaS)",
-    description: "Shipped production SaaS: Kanban job tracker, AI resume / cover letter generator, video mock interviews (SSE streaming AI feedback), and resume-vs-JD skills gap analysis.",
-    impact: "Production SaaS Deployment",
-    tech: ["React 19", "Next.js 15", "PostgreSQL", "Gemini AI", "Clerk", "Redis", "AWS S3"],
-    architecture: "Implemented OAuth 2.0 (Clerk), Redis session caching, S3 document storage, A/B testing, and Swagger API docs.",
-    liveUrl: "https://your-live-link.com",
-    githubUrl: "https://github.com/prince8085"
+    title: "Saree Sansar — AI E-Commerce with Virtual Try-On (Client)",
+    description: "Production full-stack e-commerce platform with AI Virtual Try-On, bilingual conversational shopping assistant, and high-performance product catalog.",
+    impact: "90% LLM cost reduction",
+    tech: ["Next.js 15", "FastAPI", "Gemini Vision", "Qwen VL", "AWS", "Redis"],
+    architecture: "Multi-model vision routing (Gemini Vision + Qwen VL) with circuit breaker failover, Redis session caching, S3 + CloudFront image delivery, and FastAPI microservices.",
+    liveUrl: "https://saree-sansar.vercel.app",
+    githubUrl: "https://github.com/Prince8085/saree-sansar"
   },
   {
-    title: "Trading Intelligence AI",
-    description: "Virtual analyst with real-time WebSocket streaming, Function Calling for structured market data extraction and interactive dashboards (Recharts).",
-    impact: "Real-time Market Insights",
-    tech: ["React", "Gemini", "WebSocket", "Redis", "Firebase", "AWS S3"],
-    architecture: "Multi-model styling platform (Gemini + Qwen VL) with circuit breaker failover, S3 image storage, bilingual chatbot - 90% cost reduction.",
-    liveUrl: "https://your-live-link.com",
-    githubUrl: "https://github.com/prince8085"
+    title: "Smart API Trading Bot — Real-Time Indian Stock Market",
+    description: "Real-time algorithmic trading analysis system integrating option chain sentiment, breaking financial news processing, and custom ML predictive models.",
+    impact: "95%+ model accuracy",
+    tech: ["Python", "Flask", "ML/LSTM", "DeepSeek", "Option Chain", "News API"],
+    architecture: "LSTM neural network for market trend forecasting, DeepSeek sentiment analysis on live news, Angel One SmartAPI WebSocket streaming, and interactive analytics dashboard.",
+    liveUrl: "",
+    githubUrl: "https://github.com/Prince8085/smart-api-trading-bot"
+  },
+  {
+    title: "Hyper3D Rodin AI Generator — Text-to-3D Suite",
+    description: "Next-gen generative 3D asset generation suite converting text prompts and reference images into interactive 3D meshes with real-time polling and multi-format exports.",
+    impact: "Production 3D Pipeline",
+    tech: ["Next.js 15", "TypeScript", "Three.js", "Hyper3D Rodin API", "Tailwind CSS"],
+    architecture: "Interactive Three.js WebGL preview viewport, async generation job queue polling, and automated multi-format export pipeline (GLB, OBJ, FBX, STL).",
+    liveUrl: "",
+    githubUrl: "https://github.com/Prince8085/Hyper3D-Rodin-AI-Generator-"
   }
 ];
 
@@ -122,12 +131,12 @@ export function Projects() {
                     </div>
 
                     <div className="flex gap-4">
-                      {project.liveUrl && project.liveUrl !== "#" && (
+                      {project.liveUrl && project.liveUrl.trim() !== "" && (
                         <Button variant="secondary" size="sm" icon={<ExternalLink size={14} />} onClick={() => window.open(project.liveUrl, '_blank')}>
                           View Live
                         </Button>
                       )}
-                      {project.githubUrl && project.githubUrl !== "#" && (
+                      {project.githubUrl && project.githubUrl.trim() !== "" && (
                         <Button variant="ghost" size="sm" icon={<Github size={14} />} onClick={() => window.open(project.githubUrl, '_blank')}>
                           Source Code
                         </Button>
